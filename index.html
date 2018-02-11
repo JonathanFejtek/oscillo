@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rajdhani:300,400,500,600,700" rel="stylesheet">
+</head>
+<body>
+    <div class="top-controls">
+        <div id="pc">
+            <h1 class = "app-title">Oscillo</h1>
+            <!-- <h5 class = "app-subtitle" >Harmonic Form Synthesizer</h5> -->
+        </div>  
+        <div id="slider-group-container"></div>
+    </div>
+
+    <div class="bottom-controls">
+        <div id="curve-controls">
+            <div class="wavePreviewCanvasContainer">
+                <div class="wavePreviewCanvasContainer-col1">
+                    <div class = "wavePreviewCanvas" id="sinePreviewCanvas"></div>
+                </div>
+                <div class="wavePreviewCanvasContainer-col2">
+                    <div class = "wavePreviewCanvas" id="cosPreviewCanvas"></div>
+                </div>
+            </div>
+        </div>
+        <div id="canvas-container"></div>
+    </div>
+
+    <script
+    src="http://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>  
+    <!-- <script src = "scripts/utils/dom-aid.js"></script> -->
+    <script src = "scripts/utils/observer-pattern.js"></script>
+    <script src = "scripts/primitives-ui/misc-ui.js"></script>
+    <script src = "scripts/primitives-ui/horizontal-range-inputs.js"></script>
+    <script src = "scripts/primitives-ui/vertical-range-inputs.js"></script>
+    <script src = "scripts/oscillo-ui/partial-view-controller.js"></script>
+    <script src = "scripts/oscillo-ui/curve-view-controller.js"></script>
+    <script src = "scripts/oscillo-ui/preset-view-controller.js"></script>
+    <script src = "scripts/oscillo-model/harmonic-summator.js"></script>
+    <script src = "scripts/oscillo-render/phase-portrait.js"></script>
+    <script src = "scripts/oscillo-render/wave-preview.js"></script>
+    <script src = "scripts/svg/svg_canvas.js"></script>
+    <script src = "scripts/svg/shape/shape2.js"></script>
+    <script src = "scripts/app.js"></script>
+</body>
+</html>
