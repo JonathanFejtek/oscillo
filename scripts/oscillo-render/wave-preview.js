@@ -38,9 +38,9 @@ WavePreviewGraph.prototype.update = function(obj,arg){
   
     let psum = this.ySource.getPartialSum();
 
-    for(let t = 0; t < two_pi-(two_pi/200); t+=two_pi/200){
-        let x = mapValue(t,0,two_pi,4,boundWidth-4);
-        let j = mapValue(t,0,two_pi,4,boundWidth-4);
+    for(let t = 0.0; t < two_pi-(two_pi/200); t+=two_pi/200){
+        let x = mapValue(t,0.0,two_pi,4,boundWidth-4);
+        let j = mapValue(t,0.0,two_pi,4,boundWidth-4);
         let y;
 
         if(this.type == "sine"){
@@ -51,7 +51,14 @@ WavePreviewGraph.prototype.update = function(obj,arg){
             y = mapValue(this.ySource.getValueAtParameter(t,"cos"),-psum,psum,boundHeight-4,4);
         }
 
-        this.curve.setPoint(c,x,y);
+        // mozilla doesn't like zero...?
+        if(psum > 0){
+            this.curve.setPoint(c,x,y);
+        }
+        else{
+            this.curve.setPoint(c,x,0);
+        }
+        
         c++;
     }   
 }

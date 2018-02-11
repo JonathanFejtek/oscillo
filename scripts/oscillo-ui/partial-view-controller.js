@@ -139,8 +139,8 @@ PartialViewController.prototype.update = function(obj,arg){
 
     if(obj instanceof PresetManager){
         if(arg){
-            this.cosPartialController.setSeriesFactor(arg["cosFactor"]);
-            this.sinePartialController.setSeriesFactor(arg["sineFactor"]);
+            this.cosPartialController.setSeriesFactor(arg["cosFactor"],false);
+            this.sinePartialController.setSeriesFactor(arg["sineFactor"],false);
             this.cosPartialController.setPartialValues(arg["cosPartials"]);
             this.sinePartialController.setPartialValues(arg["sinePartials"]);
             console.log("setting preset");

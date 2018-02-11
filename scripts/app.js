@@ -20,9 +20,9 @@ oscillo.setupComponents = function(){
 
     // -- setup view-controllers --
     // view-controller for partials/series
-    oscillo.pvc = new PartialViewController(document.getElementById("slider-group-container"),64);
+    oscillo.pvc = new PartialViewController($("#slider-group-container")[0],64);
     // view-controller for curve options
-    oscillo.curveController = new CurveViewController(document.getElementById("curve-controls"));
+    oscillo.curveController = new CurveViewController($("#curve-controls")[0]);
 
     // -- setup summators (model) --
     // summator for sine series

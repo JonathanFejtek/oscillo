@@ -320,8 +320,8 @@ PolyLine.prototype.addPoint = function(x,y,percentage){
  */
 PolyLine.prototype.setPoint = function(index,x,y){
   var point = this.dataSVG.points.getItem(index);
-  point.x = x;
-  point.y = y;
+  point.x = parseFloat(x);
+  point.y = parseFloat(y);
 }
 /**
  * Resets all the points in this PolyLine.
@@ -450,58 +450,58 @@ Polygon.prototype.computeCentroid = function(){
   return this.centroid;
 }
 
-function Curve(SVGparent){
-  SVGCShape.call(this);
-  this.SVGparent = SVGparent;
-  this.dataSVG = document.createElementNS(NS_SVG, "polyline");
-  this.dataSVG.setAttribute("stroke", "black");
-  this.dataSVG.setAttribute("stroke-width", "1");
-  this.dataSVG.setAttribute("fill", "none");
-  this.dataSVG.setAttribute("transform","matrix(1 0 0 1 0 0)");
-  this.curveData = new toxi.geom.Spline2D();
-  this.vertices = [];
-//  console.log(this.SVGParent);
-}
+// function Curve(SVGparent){
+//   SVGCShape.call(this);
+//   this.SVGparent = SVGparent;
+//   this.dataSVG = document.createElementNS(NS_SVG, "polyline");
+//   this.dataSVG.setAttribute("stroke", "black");
+//   this.dataSVG.setAttribute("stroke-width", "1");
+//   this.dataSVG.setAttribute("fill", "none");
+//   this.dataSVG.setAttribute("transform","matrix(1 0 0 1 0 0)");
+//   this.curveData = new toxi.geom.Spline2D();
+//   this.vertices = [];
+// //  console.log(this.SVGParent);
+// }
 
-inheritPrototype(Curve,SVGCShape);
+// inheritPrototype(Curve,SVGCShape);
 
-Curve.prototype.addPoint = function(x,y){
+// Curve.prototype.addPoint = function(x,y){
 
-  if(this.vertices.length < 2){
-    var point = this.SVGparent.createSVGPoint();
-    point.x = x;
-    point.y = y;
-    this.dataSVG.points.appendItem(point);
-    this.vertices.push(point);
-    this.curveData.add(new toxi.geom.Vec2D(x,y));
-  }
+//   if(this.vertices.length < 2){
+//     var point = this.SVGparent.createSVGPoint();
+//     point.x = x;
+//     point.y = y;
+//     this.dataSVG.points.appendItem(point);
+//     this.vertices.push(point);
+//     this.curveData.add(new toxi.geom.Vec2D(x,y));
+//   }
 
-  else{
-    var point = this.SVGparent.createSVGPoint();
-    point.x = x;
-    point.y = y;
-    this.clearSVG();
-    this.curveData.add(new toxi.geom.Vec2D(x,y));
-    this.computeCurveSVG();
-    this.vertices.push(point);
-  }
+//   else{
+//     var point = this.SVGparent.createSVGPoint();
+//     point.x = x;
+//     point.y = y;
+//     this.clearSVG();
+//     this.curveData.add(new toxi.geom.Vec2D(x,y));
+//     this.computeCurveSVG();
+//     this.vertices.push(point);
+//   }
 
 
-//  console.log(this.curveData.getDecimatedVertices());
+// //  console.log(this.curveData.getDecimatedVertices());
 
-}
+// }
 
-Curve.prototype.computeCurveSVG = function(){
-  console.log(this.curveData);
-  var vertices = this.curveData.computeVertices(30);
-  for(var i = 0; i < vertices.length; i++){
-    var point = this.SVGparent.createSVGPoint();
-    point.x = vertices[i].x
-    point.y = vertices[i].y;
-    this.dataSVG.points.appendItem(point);
-  }
-}
+// Curve.prototype.computeCurveSVG = function(){
+//   console.log(this.curveData);
+//   var vertices = this.curveData.computeVertices(30);
+//   for(var i = 0; i < vertices.length; i++){
+//     var point = this.SVGparent.createSVGPoint();
+//     point.x = vertices[i].x
+//     point.y = vertices[i].y;
+//     this.dataSVG.points.appendItem(point);
+//   }
+// }
 
-Curve.prototype.clearSVG = function(){
-  this.dataSVG.points.clear();
-}
+// Curve.prototype.clearSVG = function(){
+//   this.dataSVG.points.clear();
+// }
