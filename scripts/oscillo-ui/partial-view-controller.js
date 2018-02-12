@@ -143,7 +143,6 @@ PartialViewController.prototype.update = function(obj,arg){
             this.sinePartialController.setSeriesFactor(arg["sineFactor"],false);
             this.cosPartialController.setPartialValues(arg["cosPartials"]);
             this.sinePartialController.setPartialValues(arg["sinePartials"]);
-            console.log("setting preset");
             this.notify();
         }
     }
@@ -151,11 +150,9 @@ PartialViewController.prototype.update = function(obj,arg){
     switch(obj){
         // if object is linkedPartialsToggle
         case this.linkPartialsToggle :
-            console.log("link partials");
         break;
 
         case this.linkFactorsToggle :
-            console.log("link factors");
         break;
 
         // if object is sinePartialController

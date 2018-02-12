@@ -39,7 +39,7 @@ oscillo.setupComponents = function(){
     oscillo.phasePortrait = new PhasePortrait(oscillo.hs1,oscillo.hs2,oscillo.curveController,oscillo.svgc);
 
     // controller for setting presets
-    oscillo.presetController = new PresetManager(document.getElementById("pc"));
+    oscillo.presetController = new PresetManager($("#tc-left")[0]);
 
     oscillo.presetController.manage(oscillo.curveController);
     oscillo.presetController.manage(oscillo.pvc);
@@ -69,6 +69,14 @@ oscillo.setupPresets = function(){
 
 
     oscillo.presetController.addPreset("James Gandalfini",[1,0,0,0,0.5625,0,0,0.3125,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.15625],[1,0,0,0,0.5625,0,0,0.3125,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.15625],8,8,176,4,222);
+
+    oscillo.presetController.addPreset("Subtle sadFluff",[0.15625,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0625,1],[0.15625,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0625,1],2,2,235,1.4,360);
+
+    oscillo.presetController.addPreset("Sutra Phi",[1,0,0,0,0,0.5625,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.34375],[1,0,0,0,0,0.5625,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.34375],3,3,360,5,260);
+
+    oscillo.presetController.addPreset("Umbrasol",[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],4,4,536,1.5,250);
+
+    oscillo.presetController.addPreset("gLaze",[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.7,0,0,0,0],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.7,0,0,0,0],4,4,651,1.5,250);
 }
 
 

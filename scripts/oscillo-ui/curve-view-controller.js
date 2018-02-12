@@ -1,6 +1,6 @@
 extend(CurveViewController.prototype,StateComponent.prototype);
 /**
- * 
+ * A CurveViewController. Controls and displays some parameter details for a curve.
  * @param {*} parentElement 
  */
 function CurveViewController(parentElement){
@@ -16,9 +16,10 @@ function CurveViewController(parentElement){
 }
 
 /**
- * 
- * @param {*} obj 
- * @param {*} arg 
+ * Update method called by Subjects this CurveViewController is observing. Filters and handles the update calls based on passed object references and arguments.
+ * @override
+ * @param {Object} obj - Notifying object
+ * @param {any} arg - Special messages!!!
  */
 CurveViewController.prototype.update = function(obj,arg){
 
@@ -43,21 +44,21 @@ CurveViewController.prototype.update = function(obj,arg){
 }
 
 /**
- * 
+ * Get the current curve thickness parameter of this controller.
  */
 CurveViewController.prototype.getCurveThickness = function(){
     return this.controllerGroup.getValue("Curve Thickness");
 }
 
 /**
- * 
+ * Get the current curve fidelity parameter of this controller.
  */
 CurveViewController.prototype.getCurveFidelity = function(){
     return this.controllerGroup.getValue("Curve Fidelity");
 }
 
 /**
- * 
+ * Get the current zoom parameter of this controller.
  */
 CurveViewController.prototype.getZoom = function(){
     return this.controllerGroup.getValue("Zoom");

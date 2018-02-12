@@ -25,7 +25,7 @@ function extend(destination, source) {
 function Observer(){}
 
 /**
- * Abstract update method.
+ * 'Abstract' update method. Called by subjects this observer may be observing.
  */
 Observer.prototype.update = function(obj){}
 

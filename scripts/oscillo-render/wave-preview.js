@@ -5,10 +5,10 @@ function mapValue(value, low1, high1, low2, high2) {
 
 extend(WavePreviewGraph.prototype,StateComponent.prototype);
 /**
- * 
- * @param {*} ySource 
- * @param {*} type 
- * @param {*} svgCanvas 
+ * A WavePreviewGraph. Displays a harmonic function as a co-domain of the x-axis. More or less just a graph plotter - but less re-usable. :S
+ * @param {*} ySource - The co-domain source for this WavePreviewGraph.
+ * @param {*} type - The type of harmonic function this WavePreviewGraph should preview (cosine vs. sine)
+ * @param {*} svgCanvas - The SVGCanvas this WavePreviewGraph should draw on.
  */
 function WavePreviewGraph(ySource,type,svgCanvas){
     StateComponent.call(this);
@@ -24,9 +24,10 @@ function WavePreviewGraph(ySource,type,svgCanvas){
 }
 
 /**
- * 
- * @param {*} obj 
- * @param {*} arg 
+ * Update method called by Subjects this WavePreviewGraph is observing. Filters and handles the update calls based on passed object references and arguments.
+ * @override
+ * @param {Object} obj - Notifying object
+ * @param {any} arg - Special messages!!!
  */
 WavePreviewGraph.prototype.update = function(obj,arg){
     let c = 0;

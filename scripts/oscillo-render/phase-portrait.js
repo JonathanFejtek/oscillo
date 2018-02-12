@@ -5,11 +5,11 @@ function mapValue(value, low1, high1, low2, high2) {
 
 extend(PhasePortrait.prototype,StateComponent.prototype);
 /**
- * 
- * @param {*} xSource 
- * @param {*} ySource 
- * @param {*} curveController 
- * @param {*} svgCanvas 
+ * Displays a the correlation/phase portrait produced by two signal sources.
+ * @param {HarmonicSummator} xSource - Domain signal source.
+ * @param {HarmonicSummator} ySource - Co-domain signal source.
+ * @param {CurveViewController} curveController - Collaborator CurveViewController.
+ * @param {SVGCanvas} svgCanvas - SVGCanvas this PhasePortrait will draw on.
  */
 function PhasePortrait(xSource,ySource,curveController,svgCanvas){
     StateComponent.call(this);
@@ -18,31 +18,37 @@ function PhasePortrait(xSource,ySource,curveController,svgCanvas){
     this.curveController = curveController;
     this.svgCanvas = svgCanvas;
 
+    // observe relevant controllers
     this.observe(xSource);
     this.observe(ySource);
     this.observe(curveController);
 
+    // initialize polylines that this component will drive
     this.outerCurve = svgCanvas.PolyLine([]);
     this.innerCurve = svgCanvas.PolyLine([]);
 
+    // various curve appearance parameters
     this.fidelity = 2000;
-    this.thickness = 4;
-    this.zoom = 100;
-  
+    this.thickness = 1;
+    this.zoom = 10;
+    
+    // initialize polyline in the corner (hehe)
     for(let i = 0; i <= this.fidelity; i++){
       this.outerCurve.addPoint(0,0);
       this.innerCurve.addPoint(0,0);
     }
-  
+    
+    // set polyline appearance
     this.outerCurve.strokeWeight(this.thickness);
     this.innerCurve.strokeWeight(this.thickness-1);
     this.innerCurve.stroke("darkgrey");
 }
 
 /**
- * 
- * @param {*} obj 
- * @param {*} arg 
+ * Update method called by Subjects this PhasePortrait is observing. Filters and handles the update calls based on passed object references and arguments.
+ * @override
+ * @param {Object} obj - Notifying object
+ * @param {any} arg - Special messages!!!
  */
 PhasePortrait.prototype.update = function(obj,arg){
 
@@ -92,7 +98,7 @@ PhasePortrait.prototype.update = function(obj,arg){
 }
 
 /**
- * 
+ * Draws this PhasePortrait's curve.
  */
 PhasePortrait.prototype.drawCurve = function(){
     let two_pi = Math.PI*2;
@@ -118,7 +124,7 @@ PhasePortrait.prototype.drawCurve = function(){
 }
 
 /**
- * 
+ * Resets this PhasePortrait's curve.
  */
 PhasePortrait.prototype.reset = function(){
     this.innerCurve.reset();
@@ -128,4 +134,4 @@ PhasePortrait.prototype.reset = function(){
       this.outerCurve.addPoint(0,0);
       this.innerCurve.addPoint(0,0);
     }
-  }
+}

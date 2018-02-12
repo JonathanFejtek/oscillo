@@ -1,7 +1,7 @@
 extend(HarmonicSummator.prototype,StateComponent.prototype);
 /**
- * 
- * @param {*} seriesController 
+ * A HarmonicSummator. Performs Fourier Sums. Questionably superfluous as a constructed object; decidedly OO.
+ * @param {PartialSetController} seriesController 
  */
 function HarmonicSummator(seriesController){
     StateComponent.call(this);
@@ -14,15 +14,15 @@ function HarmonicSummator(seriesController){
 }
 
 /**
- * 
- * @param {*} obj 
- * @param {*} arg 
+ * Update method called by Subjects this HarmonicSummator is observing. Filters and handles the update calls based on passed object references and arguments.
+ * @override
+ * @param {Object} obj - Notifying object
+ * @param {any} arg - Special messages!!!
  */
 HarmonicSummator.prototype.update = function(obj,arg){
     if(this.seriesController){
         if(obj == this.seriesController){
             this.values = this.seriesController.getPartialValues();
-            console.log(this.values);
             this.seriesFrequencyFactor = this.seriesController.getSeriesFactor();
             this.notify();
         }
@@ -30,9 +30,9 @@ HarmonicSummator.prototype.update = function(obj,arg){
 }
 
 /**
- * 
- * @param {*} t 
- * @param {*} phase 
+ * Returns a value for a given parameter, t, and the harmonic function defined by this HarmonicSummator.
+ * @param {number} t - Parameter
+ * @param {*} phase - Type of summation (sine or cosine).
  */
 HarmonicSummator.prototype.getValueAtParameter = function(t,phase){
     switch(phase){
@@ -47,7 +47,7 @@ HarmonicSummator.prototype.getValueAtParameter = function(t,phase){
 }
 
 /**
- * 
+ * Helper
  * @param {*} t 
  */
 HarmonicSummator.prototype.getValueAtParameterSin = function(t){
@@ -63,7 +63,7 @@ HarmonicSummator.prototype.getValueAtParameterSin = function(t){
 }
 
 /**
- * 
+ * Helper
  * @param {*} t 
  */
 HarmonicSummator.prototype.getValueAtParameterCos = function(t){
@@ -79,7 +79,7 @@ HarmonicSummator.prototype.getValueAtParameterCos = function(t){
 }
 
 /**
- * 
+ * Returns the amplitude sum of all partials in this HarmonicSummator.
  */
 HarmonicSummator.prototype.getPartialSum = function(){
     let sum = 0;

@@ -56,7 +56,6 @@ PresetManager.prototype.addPreset = function(name,sinePartials,cosPartials,sineF
  * @param {*} arg 
  */
 PresetManager.prototype.update = function(obj,arg){
-    console.log(this.presets[obj["name"]]);
     this.notify(this.presets[obj["name"]]);
 }
 

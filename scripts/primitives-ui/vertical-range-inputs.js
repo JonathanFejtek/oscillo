@@ -7,13 +7,13 @@ function VerticalSlider(parentElement){
     Subject.call(this);
     this.parentElement = parentElement;
     this.container = document.createElement("div");
-    this.container.setAttribute("class","mySlider-container");
+    this.container.setAttribute("class","v-slider-container");
 
     this.parentElement.appendChild(this.container);
 
 
     this.rangeInput = document.createElement("INPUT");
-    this.rangeInput.setAttribute("class","mySlider");
+    this.rangeInput.setAttribute("class","v-slider");
     this.rangeInput.setAttribute("type","range");
     this.rangeInput.setAttribute("step",String(1.0/32));
     this.rangeInput.setAttribute("min","0");
@@ -107,7 +107,7 @@ function SliderGroup(parentElement,numSliders,sliderClass){
         this.values.push(0);
         
         let l = document.createElement("div");
-         l.setAttribute("class","mySlider-label");
+         l.setAttribute("class","v-slider-label");
         l.innerHTML = (i+1).toString();
         this.labelContainer.appendChild(l);
         this.labels.push(l);
@@ -251,12 +251,10 @@ SliderFloatController.prototype.handle = function(e){
 
     switch(e.target){
         case this.resetValuesButton : 
-            console.log("reset");
             this.resetValues();
         break;
 
         case this.randomValuesButton :
-            console.log("random");
             this.randomizeValues();
         break;
     }
