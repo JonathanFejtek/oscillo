@@ -3,21 +3,30 @@
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
-  border-style: solid;
+  border-style: outset;
   border-width: 1px;
+  box-shadow: 1px 2px 4px #5a5a5a;
   font-size: 0; }
 
 .slider-float-controller-container {
   padding: 4px;
-  border-style: solid;
+  box-shadow: 1px 2px 4px #5a5a5a;
+  border-style: outset;
   border-width: 1px;
+  background-color: #8FA3BB;
   display: flex;
   width: 100%; }
 
 .slider-float-controller-dashboard {
   display: flex;
   flex-flow: column;
-  border-style: solid;
-  border-width: 1px; }
+  background-color: #60799A;
+  box-shadow: 1px 2px 4px #5a5a5a;
+  border-style: outset;
+  border-width: 1px;
+  padding: 2px; }
+
+.slider-float-controller-dashboard-reset-button {
+  padding: 3px; }
 
 /*# sourceMappingURL=vertical-range-inputs.css.map */

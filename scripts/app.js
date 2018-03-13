@@ -12,7 +12,7 @@ let oscillo = {};
 oscillo.setupComponents = function(){
     // -- setup canvases (view) --
     // create main canvas for phase portrait render
-    oscillo.svgc = new SVGCanvas("100%","56%","canvas-container");
+    oscillo.svgc = new SVGCanvas("100%","60%","canvas-container");
     // create canvas for sine wave preview
     oscillo.sinePreviewCanvas = new SVGCanvas("100%","40%","sinePreviewCanvas");
     // create canvas for cosine wave preview
@@ -79,10 +79,26 @@ oscillo.setupPresets = function(){
     oscillo.presetController.addPreset("gLaze",[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.7,0,0,0,0],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.7,0,0,0,0],4,4,651,1.5,250);
 }
 
+oscillo.setUpHelpModal = function(){
+    let helpOpen = $('.toggle-help-button');
+    let helpModal = $('.help-section');
+    let helpClose = $('.close-help-button');
+    helpOpen.on('click',function(){
+        helpModal.show();
+    })
+
+    helpClose.on('click', function(){
+        helpModal.hide();
+    })
+
+    helpModal.hide();
+}
+
 
 $(function(){  
     oscillo.setupComponents();
-    oscillo.setupPresets(); 
+    oscillo.setupPresets();
+    oscillo.setUpHelpModal();
 }
 )
 
